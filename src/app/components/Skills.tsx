@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 const skills = [
   { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", invert: true },
@@ -23,7 +21,6 @@ const skills = [
 ];
 
 export default function Skills() {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
     <section id="skills" className="py-20 px-6 lg:px-20">
@@ -33,33 +30,17 @@ export default function Skills() {
           Technologies and tools I use to bring products to life.
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4">
-          {skills.map((skill, idx) => (
+          {skills.map((skill) => (
             <div
               key={skill.name}
-              className="group relative flex flex-col items-center justify-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 transition-all duration-300 cursor-default"
-              style={{
-                borderColor:
-                  hoveredIdx === idx
-                    ? "var(--accent)"
-                    : "var(--border)",
-                boxShadow:
-                  hoveredIdx === idx
-                    ? "0 0 20px var(--accent-glow)"
-                    : "none",
-                transform:
-                  hoveredIdx === idx ? "translateY(-4px)" : "translateY(0)",
-              }}
-              onMouseEnter={() => setHoveredIdx(idx)}
-              onMouseLeave={() => setHoveredIdx(null)}
+              className="flex flex-col items-center justify-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--card)] p-5"
             >
               <img
                 src={skill.icon}
                 alt={skill.name}
                 width={40}
                 height={40}
-                className={`transition-transform duration-300 group-hover:scale-110 ${
-                  skill.invert ? "invert" : ""
-                }`}
+                className={skill.invert ? "invert" : ""}
               />
               <span className="text-sm text-[var(--text)] text-center font-medium">
                 {skill.name}
