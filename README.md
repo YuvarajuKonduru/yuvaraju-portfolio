@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yuvaraju Konduru — Portfolio
+
+A sleek dark-themed portfolio built with **Next.js 14 App Router**, **TypeScript**, and **Tailwind CSS**.
+
+## Tech Stack
+
+- **Next.js 14** — App Router, SSR, metadata API
+- **TypeScript** — fully typed components
+- **Tailwind CSS** — utility-first styling
+- **DM Sans + Syne** — typography pairing
+
+## Project Structure
+
+```
+portfolio/
+├── app/
+│   ├── layout.tsx        # Root layout + metadata
+│   ├── page.tsx          # Main page (assembles sections)
+│   └── globals.css       # Global styles + CSS variables
+├── components/
+│   ├── Navbar.tsx        # Sticky nav with smooth scroll
+│   ├── Hero.tsx          # Hero section with stats
+│   ├── About.tsx         # About + profile card
+│   ├── Experience.tsx    # Timeline work history
+│   ├── Skills.tsx        # Tech stack grid
+│   ├── Projects.tsx      # Project cards
+│   ├── Contact.tsx       # Contact form + links
+│   └── Footer.tsx        # Footer with links
+├── next.config.js
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customization
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Personal Info
+Update these files with your real details:
 
-## Learn More
+- **`components/Navbar.tsx`** — logo initials
+- **`components/Hero.tsx`** — name, role, stats
+- **`components/About.tsx`** — bio text, card details (email, location)
+- **`components/Experience.tsx`** — `experiences` array — add your real companies, roles, descriptions
+- **`components/Skills.tsx`** — `skillCategories` array — add/remove skills
+- **`components/Projects.tsx`** — `projects` array — add real project links
+- **`components/Contact.tsx`** — `contactLinks` array — update email, LinkedIn, GitHub URLs
+- **`app/layout.tsx`** — update `metadata` with your name and description
 
-To learn more about Next.js, take a look at the following resources:
+### Contact Form
+The form in `Contact.tsx` is wired to local state. Connect it to a service:
+- **[Resend](https://resend.com)** — email API, works great with Next.js
+- **[Formspree](https://formspree.io)** — no backend needed
+- **[EmailJS](https://emailjs.com)** — client-side only
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Deployment
+```bash
+# Build for production
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Deploy to Vercel (recommended)
+npx vercel
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Color Palette
+Defined as CSS variables in `app/globals.css`:
+- `--accent`: `#6C63FF` (indigo)
+- `--accent2`: `#00D4AA` (teal)
+- `--bg`: `#0a0a0f` (dark base)
+- `--card`: `#1a1a24` (card surface)
